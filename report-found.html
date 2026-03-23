@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Report an Item Found - Personal Lost and Found</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Report an Item Found</h1>
+      <p class="tagline">Help reunite someone with their lost item by reporting what you found.</p>
+      <a href="index.html" class="back-link">← Back to Home</a>
+    </header>
+
+    <section class="form-section">
+      <form class="form">
+        <div class="form-group">
+          <label for="item-name">Item Name *</label>
+          <input type="text" id="item-name" name="item-name" placeholder="e.g., Silver Watch" required />
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description *</label>
+          <textarea id="description" name="description" rows="4" placeholder="Describe the item and its condition..." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="found-location">Location Found *</label>
+          <input type="text" id="found-location" name="found-location" placeholder="e.g., Park Bench" required />
+        </div>
+
+        <div class="form-group">
+          <label for="date-found">Date Found *</label>
+          <input type="date" id="date-found" name="date-found" required />
+        </div>
+
+        <div class="form-group">
+          <label for="pickup-point">Where Can Owner Pick Up? *</label>
+          <input type="text" id="pickup-point" name="pickup-point" placeholder="e.g., Police Station, Your Address" required />
+        </div>
+
+        <div class="form-group">
+          <label for="contact-email">Your Email *</label>
+          <input type="email" id="contact-email" name="contact-email" placeholder="your@email.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="contact-phone">Your Phone Number</label>
+          <input type="tel" id="contact-phone" name="contact-phone" placeholder="Optional" />
+        </div>
+
+        <div class="form-group">
+          <label for="photo">Photo of Item</label>
+          <input type="file" id="photo" name="photo" accept="image/*" />
+        </div>
+
+        <button type="submit" class="btn-submit">Submit Report</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>Thank you for being a good Samaritan! (This is a demo - no data is actually submitted)</p>
+    </footer>
+  </div>
+</body>
+</html>
