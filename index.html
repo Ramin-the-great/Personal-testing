@@ -9,71 +9,86 @@
 <body>
   <div class="container">
     <header>
-      <h1>My Personal Lost and Found</h1>
-      <p class="tagline">Demo index page for reporting missing items and posting found items.</p>
-      <div style="display: flex; gap: 1rem; justify-content: center;">
-        <a href="settings.html" class="btn-secondary">Settings</a>
-        <button id="theme-btn" class="btn-secondary" style="cursor: pointer;">🌙 Dark Mode</button>
+      <h1>Personal Lost & Found</h1>
+      <p class="tagline">Connect with your community to retrieve lost items and help reunite others with their belongings.</p>
+      <div class="header-controls">
+        <a href="settings.html" class="btn-secondary">⚙️ Settings</a>
+        <div class="theme-toggle-wrapper">
+          <input type="checkbox" id="theme-toggle" class="theme-toggle-input" />
+          <label for="theme-toggle" class="theme-toggle-label"></label>
+        </div>
       </div>
     </header>
 
     <section>
       <div class="grid">
         <article class="card">
-          <span class="badge">Start here</span>
-          <h2>Report an Item Lost</h2>
-          <p>Your item went missing? Let others know by filling out a lost item report. Provide details, location, and contact information.</p>
+          <span class="badge badge-primary">Report</span>
+          <h2>Report Lost Item</h2>
+          <p>Post details about your missing item to alert your community. Include photos, description, and where it was last seen.</p>
           <a href="report-lost.html" class="btn-primary">Report Lost Item</a>
         </article>
 
         <article class="card">
-          <span class="badge">Help others</span>
-          <h2>Report an Item Found</h2>
-          <p>Found something that might belong to someone else? Report it here and help reunite them with their belongings.</p>
+          <span class="badge badge-success">Help</span>
+          <h2>Report Found Item</h2>
+          <p>Found an item? Help return it to its owner by creating a found item report with relevant details.</p>
           <a href="report-found.html" class="btn-primary">Report Found Item</a>
         </article>
 
         <article class="card">
-          <span class="badge">Browse</span>
-          <h2>View Lost Items</h2>
-          <p>Browse all items that others have reported as lost. You might find something you've seen!</p>
+          <span class="badge badge-info">Browse</span>
+          <h2>Search Lost Items</h2>
+          <p>Search through our database of lost items. You might recognize something or find what you're looking for.</p>
           <a href="view-lost.html" class="btn-primary">View Lost Items</a>
         </article>
 
         <article class="card">
-          <span class="badge">Browse</span>
-          <h2>View Found Items</h2>
-          <p>Check out items that have been found. Your lost item might be here waiting for you!</p>
+          <span class="badge badge-secondary">Browse</span>
+          <h2>Search Found Items</h2>
+          <p>Browse items that have been found. Your lost item could be here, waiting to be returned to you.</p>
           <a href="view-found.html" class="btn-primary">View Found Items</a>
         </article>
       </div>
     </section>
 
     <footer>
-      <p>Demo site for Personal Lost and Found. Built as a single-page index for prototyping.</p>
+      <p>&copy; 2026 Personal Lost & Found. Helping communities reunite. | <a href="#" class="footer-link">Privacy</a> | <a href="#" class="footer-link">Contact</a></p>
     </footer>
   </div>
 
   <script>
+    // Store user IP in cookie
+    function storeUserIP() {
+      fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          const ip = data.ip;
+          const date = new Date();
+          date.setTime(date.getTime() + 30 * 24 * 60 * 60 * 1000); // 30 days
+          document.cookie = `user_ip=${ip}; expires=${date.toUTCString()}; path=/`;
+        })
+        .catch(err => console.log('Could not fetch IP'));
+    }
+    
     // Load saved theme
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
       document.body.classList.add('dark-mode');
+      document.getElementById('theme-toggle').checked = true;
     }
     
-    // Theme toggle button
-    const themeBtn = document.getElementById('theme-btn');
-    if (themeBtn) {
-      const updateThemeBtn = () => {
-        themeBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';
-      };
-      updateThemeBtn();
-      themeBtn.addEventListener('click', () => {
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('change', () => {
         document.body.classList.toggle('dark-mode');
         localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-        updateThemeBtn();
       });
     }
+    
+    // Store IP on load
+    storeUserIP();
   </script>
 </body>
 </html>

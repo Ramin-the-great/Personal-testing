@@ -9,44 +9,70 @@
 <body>
   <div class="container">
     <header>
-      <h1>Settings</h1>
-      <p class="tagline">Customize your experience</p>
-      <a href="index.html" class="back-link">← Back to Home</a>
+      <h1>Settings & Preferences</h1>
+      <p class="tagline">Customize your experience and manage your preferences</p>
+      <div class="header-controls">
+        <a href="index.html" class="back-link">← Back to Home</a>
+        <div class="theme-toggle-wrapper">
+          <input type="checkbox" id="theme-toggle" class="theme-toggle-input" />
+          <label for="theme-toggle" class="theme-toggle-label"></label>
+        </div>
+      </div>
     </header>
 
     <section class="form-section">
-      <h2>Theme Settings</h2>
+      <h2>Display Settings</h2>
       <div class="form-group">
-        <label for="theme-toggle">Dark Mode</label>
-        <input type="checkbox" id="theme-toggle" />
-        <label for="theme-toggle" class="toggle-label">Toggle Dark Mode</label>
+        <label>Dark Mode Preference</label>
+        <p style="color: var(--text-color); font-size: 0.95rem; margin-bottom: 1rem;">Use the toggle button in the header to switch between light and dark modes.</p>
       </div>
     </section>
 
-    <a href="index.html" class="back-link">Back to Home</a>
+    <section class="form-section">
+      <h2>Privacy & Security</h2>
+      <div class="form-group">
+        <label>Data Collection</label>
+        <p style="color: var(--text-color); font-size: 0.95rem;">We collect your IP address for security and analytics purposes. Your IP is stored in a cookie that expires after 30 days. <a href="#" class="footer-link">Learn more about our privacy policy</a>.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 Personal Lost & Found. <a href="#" class="footer-link">Privacy Policy</a> | <a href="#" class="footer-link">Contact Support</a></p>
+    </footer>
   </div>
 
   <script>
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
+    // Store user IP in cookie
+    function storeUserIP() {
+      fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          const ip = data.ip;
+          const date = new Date();
+          date.setTime(date.getTime() + 30 * 24 * 60 * 60 * 1000); // 30 days
+          document.cookie = `user_ip=${ip}; expires=${date.toUTCString()}; path=/`;
+        })
+        .catch(err => console.log('Could not fetch IP'));
+    }
 
     // Load saved theme
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
-      body.classList.add('dark-mode');
-      themeToggle.checked = true;
+      document.body.classList.add('dark-mode');
+      document.getElementById('theme-toggle').checked = true;
     }
 
     // Toggle theme
-    themeToggle.addEventListener('change', () => {
-      if (themeToggle.checked) {
-        body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        body.classList.remove('dark-mode');
-        localStorage.setItem('theme', 'light');
-      }
-    });
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('change', () => {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+      });
+    }
+
+    // Store IP on load
+    storeUserIP();
   </script>
 </body>
 </html>
