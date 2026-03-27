@@ -285,32 +285,32 @@ input[type="checkbox"] {
 
 /* Dark Mode Variables */
 .dark-mode {
-  --bg-color: #000000;
+  --bg-color: #0f172a;
   --text-color: #ffffff;
-  --container-bg: #1a1a1a;
-  --heading-color: #ffffff;
-  --tagline-color: #cccccc;
-  --border-color: #333333;
-  --card-bg: #2a2a2a;
-  --badge-bg: #B8860B;
-  --badge-text: #ffffff;
-  --footer-color: #cccccc;
-  --primary-bg: #004d40;
-  --primary-text: white;
-  --primary-hover: #003d33;
-  --secondary-bg: #B8860B;
-  --secondary-text: #ffffff;
-  --secondary-border: #B8860B;
-  --secondary-hover: #DAA520;
-  --submit-bg: #004d40;
-  --submit-text: white;
-  --submit-hover: #003d33;
-  --link-color: #004d40;
-  --link-hover: #003d33;
-  --form-bg: #2a2a2a;
-  --form-border: #333333;
-  --label-color: #ffffff;
-  --input-border: #333333;
-  --input-bg: #1a1a1a;
+  --container-bg: #1e293b;
+  --heading-color: #fef3c7;
+  --tagline-color: #cbd5e1;
+  --border-color: #334155;
+  --card-bg: #334155;
+  --badge-bg: #fcd34d;
+  --badge-text: #1e293b;
+  --footer-color: #cbd5e1;
+  --primary-bg: #10b981;
+  --primary-text: #1e293b;
+  --primary-hover: #059669;
+  --secondary-bg: #fbbf24;
+  --secondary-text: #1e293b;
+  --secondary-border: #fbbf24;
+  --secondary-hover: #fcd34d;
+  --submit-bg: #10b981;
+  --submit-text: #1e293b;
+  --submit-hover: #059669;
+  --link-color: #10b981;
+  --link-hover: #059669;
+  --form-bg: #1e293b;
+  --form-border: #334155;
+  --label-color: #fef3c7;
+  --input-border: #475569;
+  --input-bg: #0f172a;
   --input-text: #ffffff;
 }

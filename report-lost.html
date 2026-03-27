@@ -11,7 +11,10 @@
     <header>
       <h1>Report an Item Lost</h1>
       <p class="tagline">Help us find your missing item by providing details below.</p>
-      <a href="index.html" class="back-link">← Back to Home</a>
+      <div style="display: flex; gap: 1rem; justify-content: center;">
+        <a href="index.html" class="back-link">← Back to Home</a>
+        <button id="theme-btn" class="btn-secondary" style="cursor: pointer;">🌙 Dark Mode</button>
+      </div>
     </header>
 
     <section class="form-section">
@@ -65,6 +68,20 @@
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
       document.body.classList.add('dark-mode');
+    }
+    
+    // Theme toggle button
+    const themeBtn = document.getElementById('theme-btn');
+    if (themeBtn) {
+      const updateThemeBtn = () => {
+        themeBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';
+      };
+      updateThemeBtn();
+      themeBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        updateThemeBtn();
+      });
     }
   </script>
 </body>
