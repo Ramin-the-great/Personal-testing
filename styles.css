@@ -2,14 +2,14 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background: #f7f9fc;
-  color: #1f2937;
+  background: var(--bg-color);
+  color: var(--text-color);
 }
 
 .container {
   width: min(1100px, 90%);
   margin: 2rem auto;
-  background: #ffffff;
+  background: var(--container-bg);
   border-radius: 12px;
   box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
   padding: 2rem;
@@ -21,12 +21,12 @@ header {
 
 h1 {
   margin: 0 0 0.3rem;
-  color: #111827;
+  color: var(--heading-color);
 }
 
 p.tagline {
   margin: 0 0 1.8rem;
-  color: #475569;
+  color: var(--tagline-color);
   font-size: 1.05rem;
 }
 
@@ -37,10 +37,10 @@ p.tagline {
 }
 
 .card {
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-color);
   border-radius: 10px;
   padding: 1rem;
-  background: #fff;
+  background: var(--card-bg);
 }
 
 .card h2 {
@@ -59,15 +59,15 @@ p.tagline {
   font-size: 0.9rem;
   padding: 0.3rem 0.6rem;
   border-radius: 999px;
-  background: #e0f2fe;
-  color: #0369a1;
+  background: var(--badge-bg);
+  color: var(--badge-text);
   margin-bottom: 0.7rem;
 }
 
 footer {
   margin-top: 2rem;
   text-align: center;
-  color: #64748b;
+  color: var(--footer-color);
   font-size: 0.9rem;
 }
 
@@ -76,8 +76,8 @@ footer {
   display: inline-block;
   margin-top: 1rem;
   padding: 0.75rem 1.5rem;
-  background: #0369a1;
-  color: white;
+  background: var(--primary-bg);
+  color: var(--primary-text);
   text-decoration: none;
   border-radius: 8px;
   font-weight: 500;
@@ -88,14 +88,14 @@ footer {
 }
 
 .btn-primary:hover {
-  background: #0284c7;
+  background: var(--primary-hover);
 }
 
 .btn-secondary {
   padding: 0.5rem 1rem;
-  background: #e0f2fe;
-  color: #0369a1;
-  border: 1px solid #0369a1;
+  background: var(--secondary-bg);
+  color: var(--secondary-text);
+  border: 1px solid var(--secondary-border);
   border-radius: 6px;
   font-weight: 500;
   cursor: pointer;
@@ -104,12 +104,12 @@ footer {
 }
 
 .btn-secondary:hover {
-  background: #cffafe;
+  background: var(--secondary-hover);
 }
 
 .btn-submit {
-  background: #059669;
-  color: white;
+  background: var(--submit-bg);
+  color: var(--submit-text);
   padding: 0.75rem 2rem;
   border: none;
   border-radius: 8px;
@@ -120,30 +120,30 @@ footer {
 }
 
 .btn-submit:hover {
-  background: #047857;
+  background: var(--submit-hover);
 }
 
 /* Back Link */
 .back-link {
   display: inline-block;
   margin-top: 1rem;
-  color: #0369a1;
+  color: var(--link-color);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .back-link:hover {
-  color: #0284c7;
+  color: var(--link-hover);
 }
 
 /* Form Styling */
 .form-section {
   margin: 2rem 0;
   padding: 2rem;
-  background: #f9fafb;
+  background: var(--form-bg);
   border-radius: 10px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--form-border);
 }
 
 .form {
@@ -159,24 +159,26 @@ footer {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 500;
-  color: #1f2937;
+  color: var(--label-color);
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid #d1d5db;
+  border: 1px solid var(--input-border);
   border-radius: 6px;
   font-family: Arial, sans-serif;
   font-size: 1rem;
   box-sizing: border-box;
+  background: var(--input-bg);
+  color: var(--input-text);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #0369a1;
+  border-color: var(--primary-bg);
   box-shadow: 0 0 0 3px rgba(3, 105, 161, 0.1);
 }
 
@@ -193,26 +195,122 @@ footer {
 }
 
 .item-card {
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-color);
   border-radius: 10px;
   padding: 1.5rem;
-  background: #fff;
+  background: var(--card-bg);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .item-card h3 {
   margin-top: 0;
   margin-bottom: 1rem;
-  color: #111827;
+  color: var(--heading-color);
   font-size: 1.25rem;
 }
 
 .item-card p {
   margin: 0.5rem 0;
-  color: #374151;
+  color: var(--text-color);
   font-size: 0.95rem;
 }
 
 .item-card strong {
-  color: #1f2937;
+  color: var(--text-color);
+}
+
+/* Toggle Switch */
+.toggle-label {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  background-color: var(--secondary-bg);
+  border-radius: 34px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.toggle-label::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: white;
+  top: 4px;
+  left: 4px;
+  transition: transform 0.3s;
+}
+
+input[type="checkbox"]:checked + .toggle-label::after {
+  transform: translateX(26px);
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+/* CSS Variables for Light Mode */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #1f2937;
+  --container-bg: #ffffff;
+  --heading-color: #111827;
+  --tagline-color: #475569;
+  --border-color: #e2e8f0;
+  --card-bg: #fff;
+  --badge-bg: #FFD700;
+  --badge-text: #000000;
+  --footer-color: #64748b;
+  --primary-bg: #059669;
+  --primary-text: white;
+  --primary-hover: #047857;
+  --secondary-bg: #FFD700;
+  --secondary-text: #000000;
+  --secondary-border: #FFD700;
+  --secondary-hover: #FFE55C;
+  --submit-bg: #059669;
+  --submit-text: white;
+  --submit-hover: #047857;
+  --link-color: #059669;
+  --link-hover: #047857;
+  --form-bg: #f9fafb;
+  --form-border: #e5e7eb;
+  --label-color: #1f2937;
+  --input-border: #d1d5db;
+  --input-bg: #ffffff;
+  --input-text: #1f2937;
+}
+
+/* Dark Mode Variables */
+.dark-mode {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --container-bg: #1a1a1a;
+  --heading-color: #ffffff;
+  --tagline-color: #cccccc;
+  --border-color: #333333;
+  --card-bg: #2a2a2a;
+  --badge-bg: #B8860B;
+  --badge-text: #ffffff;
+  --footer-color: #cccccc;
+  --primary-bg: #004d40;
+  --primary-text: white;
+  --primary-hover: #003d33;
+  --secondary-bg: #B8860B;
+  --secondary-text: #ffffff;
+  --secondary-border: #B8860B;
+  --secondary-hover: #DAA520;
+  --submit-bg: #004d40;
+  --submit-text: white;
+  --submit-hover: #003d33;
+  --link-color: #004d40;
+  --link-hover: #003d33;
+  --form-bg: #2a2a2a;
+  --form-border: #333333;
+  --label-color: #ffffff;
+  --input-border: #333333;
+  --input-bg: #1a1a1a;
+  --input-text: #ffffff;
 }

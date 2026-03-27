@@ -49,5 +49,13 @@
       <p>Demo site - these are sample items. Have you found something? <a href="report-found.html">Report it here</a>.</p>
     </footer>
   </div>
+
+  <script>
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+  </script>
 </body>
 </html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings - My Personal Lost and Found</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Settings</h1>
+      <p class="tagline">Customize your experience</p>
+    </header>
+
+    <section class="form-section">
+      <h2>Theme Settings</h2>
+      <div class="form-group">
+        <label for="theme-toggle">Dark Mode</label>
+        <input type="checkbox" id="theme-toggle" />
+        <label for="theme-toggle" class="toggle-label">Toggle Dark Mode</label>
+      </div>
+    </section>
+
+    <a href="index.html" class="back-link">Back to Home</a>
+  </div>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-mode');
+      themeToggle.checked = true;
+    }
+
+    // Toggle theme
+    themeToggle.addEventListener('change', () => {
+      if (themeToggle.checked) {
+        body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        body.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  </script>
+</body>
+</html>

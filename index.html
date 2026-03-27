@@ -11,6 +11,7 @@
     <header>
       <h1>My Personal Lost and Found</h1>
       <p class="tagline">Demo index page for reporting missing items and posting found items.</p>
+      <a href="settings.html" class="btn-secondary">Settings</a>
     </header>
 
     <section>
@@ -49,5 +50,13 @@
       <p>Demo site for Personal Lost and Found. Built as a single-page index for prototyping.</p>
     </footer>
   </div>
+
+  <script>
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+  </script>
 </body>
 </html>

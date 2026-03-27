@@ -64,5 +64,13 @@
       <p>Thank you for being a good Samaritan! (This is a demo - no data is actually submitted)</p>
     </footer>
   </div>
+
+  <script>
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+  </script>
 </body>
 </html>
